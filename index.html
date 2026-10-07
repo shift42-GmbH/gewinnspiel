@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gewinnspiel – Gewinnen Sie eine kostenlose Beratung</title>
+<style>
+/* ===== FIRMENLAYOUT: hier Farben, Schrift und Logo anpassen ===== */
+:root{
+  --brand:#3eadad;        /* Hauptfarbe */
+  --brand-dark:#308686;   /* Hover */
+  --ink:#1c2233;          /* Textfarbe */
+  --muted:#5d667a;
+  --bg:#f3f5fa;
+  --card:#ffffff;
+  --line:#d5d9e4;
+  --font:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);color:var(--ink);background:var(--bg);line-height:1.5}
+header{background:#fff;border-bottom:4px solid var(--brand);padding:14px 24px}
+header .logo{display:block;height:40px;width:auto}
+/* Logo einsetzen: <img src="logo.png" alt="Firmenname" height="36"> statt Text */
+main{max-width:560px;margin:32px auto;padding:0 16px}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 10px}
+.lead{color:var(--muted);margin:0 0 24px}
+form{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px}
+label{display:block;font-weight:600;margin:0 0 4px}
+.field{margin-bottom:18px}
+input[type=text],input[type=email],input[type=tel]{
+  width:100%;padding:11px 12px;font:inherit;border:1px solid var(--line);border-radius:6px;background:#fff}
+input:focus-visible,button:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted);margin-bottom:20px}
+.check input{margin-top:4px;flex:none}
+.check label{font-weight:400;margin:0}
+button{width:100%;padding:13px;font:inherit;font-weight:700;color:#fff;background:var(--brand-dark);border:0;border-radius:6px;cursor:pointer}
+button:hover{filter:brightness(.9)}
+button:disabled{opacity:.6;cursor:wait}
+.msg{margin-top:14px;padding:12px;border-radius:6px;display:none}
+.msg.ok{display:block;background:#e5f6ea;color:#14532d}
+.msg.err{display:block;background:#fde8e8;color:#7f1d1d}
+.hp{position:absolute;left:-9999px}
+footer{max-width:560px;margin:0 auto 32px;padding:0 16px;font-size:.8rem;color:var(--muted)}
+footer a{color:inherit}
+
+.legal-section{max-width:560px;margin:0 auto 28px;padding:0 16px}
+.legal-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px}
+.legal-card h2{font-size:1.2rem;line-height:1.3;margin:0 0 12px}
+.legal-card h3{font-size:1rem;line-height:1.35;margin:18px 0 6px}
+.legal-card p,.legal-card li{font-size:.9rem;color:var(--muted)}
+.legal-card ul{padding-left:20px}
+.legal-note{font-size:.82rem;color:var(--muted);margin-top:10px}
+
+</style>
+</head>
+<body>
+<header><img class="logo" src="data:image/png;base64,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" alt="shift42" height="40"></header>
+
+<main>
+  <h1>Gewinnen Sie eine kostenlose Beratung</h1>
+  <p class="lead">Tragen Sie Ihre Daten ein und nehmen Sie an der Verlosung teil. Teilnahmeschluss: 31.10.2026.</p>
+
+  <form id="f" novalidate>
+    <div class="field">
+      <label for="firma">Firmenname</label>
+      <input type="text" id="firma" name="firma" autocomplete="organization" required>
+    </div>
+    <div class="field">
+      <label for="email">E-Mail-Adresse</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+    </div>
+    <div class="field">
+      <label for="telefon">Telefonnummer</label>
+      <input type="tel" id="telefon" name="telefon" autocomplete="tel" required>
+    </div>
+    <div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+    <div class="check">
+      <input type="checkbox" id="consent" required>
+      <label for="consent">
+        Ich habe die <a href="#teilnahmebedingungen">Teilnahmebedingungen</a> und die
+        <a href="https://www.shift42.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
+        gelesen. Ich stimme der Verarbeitung meiner Daten zur Durchführung des Gewinnspiels zu.
+      </label>
+    </div>
+    <button type="submit" id="btn">Jetzt teilnehmen</button>
+    <div id="msg" class="msg" role="status"></div>
+  </form>
+</main>
+
+
+<section class="legal-section" id="teilnahmebedingungen">
+  <div class="legal-card">
+    <h2>Teilnahmebedingungen</h2>
+
+    <h3>1. Veranstalter</h3>
+    <p>Veranstalter des Gewinnspiels ist die shift42 GmbH, GutsMuthsstraße 39, 04177 Leipzig.</p>
+
+    <h3>2. Teilnahmezeitraum</h3>
+    <p>Die Teilnahme ist ab Veröffentlichung des Gewinnspiels bis zum 31.10.2026, 23:59 Uhr (MEZ/MESZ), möglich. Maßgeblich ist der Eingang der Teilnahme über das Online-Formular.</p>
+
+    <h3>3. Teilnahmeberechtigung</h3>
+    <p>Teilnahmeberechtigt sind volljährige natürliche Personen. Eine Teilnahme im Namen eines Unternehmens ist nur zulässig, wenn die teilnehmende Person hierzu berechtigt ist. Mitarbeiterinnen und Mitarbeiter der shift42 GmbH sowie Personen, die an der Durchführung des Gewinnspiels unmittelbar beteiligt sind, und deren Haushaltsangehörige sind von der Teilnahme ausgeschlossen.</p>
+
+    <h3>4. Teilnahme</h3>
+    <p>Die Teilnahme erfolgt durch das vollständige Ausfüllen des Online-Formulars und die Bestätigung der Teilnahmebedingungen sowie der Datenschutzerklärung. Pro Person ist nur eine Teilnahme zulässig. Automatisierte oder technisch manipulierte Teilnahmen sind unzulässig und können vom Gewinnspiel ausgeschlossen werden.</p>
+
+    <h3>5. Gewinn</h3>
+    <p>Zu gewinnen ist eine kostenlose Beratung durch shift42. Umfang und Termin der Beratung werden mit der Gewinnerin bzw. dem Gewinner abgestimmt. Eine Barauszahlung, Übertragung oder Auszahlung des Gegenwerts des Gewinns ist ausgeschlossen.</p>
+
+    <h3>6. Gewinnerermittlung und Benachrichtigung</h3>
+    <p>Unter allen gültigen Teilnahmen wird nach Ablauf des Teilnahmezeitraums per Zufallsprinzip eine Gewinnerin bzw. ein Gewinner ausgelost. Die Benachrichtigung erfolgt über die im Teilnahmeformular angegebene E-Mail-Adresse oder Telefonnummer. Meldet sich die ausgeloste Person nicht innerhalb von 14 Tagen nach der Benachrichtigung zurück, kann eine Ersatzperson ausgelost werden.</p>
+
+    <h3>7. Ausschluss</h3>
+    <p>Der Veranstalter ist berechtigt, Teilnahmen auszuschließen, wenn ein Verstoß gegen diese Teilnahmebedingungen vorliegt oder der Teilnahmevorgang manipuliert bzw. missbräuchlich beeinflusst wurde.</p>
+
+    <h3>8. Änderungen und Beendigung</h3>
+    <p>Der Veranstalter behält sich das Recht vor, das Gewinnspiel aus wichtigem Grund zu ändern, auszusetzen oder vorzeitig zu beenden, soweit dies aufgrund von Umständen erforderlich ist, die der Veranstalter nicht zu vertreten hat.</p>
+
+    <h3>9. Datenschutz</h3>
+    <p>Die im Rahmen des Gewinnspiels erhobenen Daten werden zur Durchführung des Gewinnspiels und zur Kontaktaufnahme im Zusammenhang mit der Gewinnabwicklung verarbeitet. Nähere Informationen zur Verarbeitung personenbezogener Daten und zu den Rechten der betroffenen Personen finden sich in der <a href="https://www.shift42.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von shift42</a>.</p>
+
+    <h3>10. Rechtsweg</h3>
+    <p>Der Rechtsweg ist im Hinblick auf die Ermittlung der Gewinnerin bzw. des Gewinners ausgeschlossen, soweit gesetzlich zulässig.</p>
+
+    <p class="legal-note">Stand: Oktober 2026</p>
+  </div>
+</section>
+
+<footer>
+  Der Gewinner wird per E-Mail oder Telefon benachrichtigt.
+  <a href="https://www.shift42.de/impressum" target="_blank" rel="noopener noreferrer">Impressum</a>
+  · <a href="https://www.shift42.de/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutz</a>
+  · <a href="#teilnahmebedingungen">Teilnahmebedingungen</a>
+</footer>
+
+<script>
+// Google Apps Script Web-App-Endpunkt. Diese URL darf öffentlich im Frontend stehen. Keine Geheimnisse hier ablegen.
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxpxh5Am2R-YHDAdfCmRVziWaoiP3ycaqCreHUvf9T8NNf0P0P77_7qs2enKZms5JmG/exec";
+
+const f = document.getElementById("f"), btn = document.getElementById("btn"), msg = document.getElementById("msg");
+function show(text, cls){ msg.textContent = text; msg.className = "msg " + cls; }
+
+f.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const d = new FormData(f);
+  const firma = d.get("firma").trim(), email = d.get("email").trim(), telefon = d.get("telefon").trim();
+  if (!firma || !telefon || !/^\S+@\S+\.\S+$/.test(email)) return show("Bitte füllen Sie alle Felder korrekt aus.", "err");
+  if (!document.getElementById("consent").checked) return show("Bitte stimmen Sie den Teilnahmebedingungen zu.", "err");
+  if (d.get("website")) return; // Spam-Schutz
+  if (ENDPOINT.startsWith("HIER")) return show("Formular noch nicht mit Google Sheets verbunden (ENDPOINT fehlt).", "err");
+
+  btn.disabled = true;
+  try {
+    await fetch(ENDPOINT, { method: "POST", mode: "no-cors",
+      headers: {"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify({ firma, email, telefon, website: d.get("website") || "", consent: document.getElementById("consent").checked }) });
+    f.reset();
+    show("Vielen Dank! Sie sind im Lostopf.", "ok");
+  } catch (err) {
+    show("Das hat leider nicht geklappt. Bitte versuchen Sie es erneut.", "err");
+  }
+  btn.disabled = false;
+});
+</script>
+</body>
+</html>
